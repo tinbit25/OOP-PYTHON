@@ -46,24 +46,66 @@ print(p)
 # print (f"The author of {book.title} is {book.author}")    
 
 # 7. **Implement a Library class that holds a list of books, each represented by a dictionary containing the title, author, and year. Write a method to display all books. Use default values for the library's name and location, and test the method by adding and displaying books.**
-class Library:
-  def __init__(self, name="Default Library", location="Default Location"):
-    self.name = name
-    self.location = location
-    self.books = []
-  def add_book(self, title, author, year):  
-    self.books.append({"title": title, "author": author, "year": year})
-  def display_books(self):
-    for book in self.books:
-      print(f"Title: {book['title']}, Author: {book['author']}, Year: {book['year']}")
-# Creating a library object
-library = Library()
-# Adding books to the library
-library.add_book("Book1", "Author1", 2020)
-library.add_book("Book2", "Author2", 2021)
-# Displaying books in the library
-library.display_books()     
+# class Library:
+#   def __init__(self, name="Default Library", location="Default Location"):
+#     self.name = name
+#     self.location = location
+#     self.books = []
+#   def add_book(self, title, author, year):  
+#     self.books.append({"title": title, "author": author, "year": year})
+#   def display_books(self):
+#     for book in self.books:
+#       print(f"Title: {book['title']}, Author: {book['author']}, Year: {book['year']}")
+# # Creating a library object
+# library = Library()
+# # Adding books to the library
+# library.add_book("Book1", "Author1", 2020)
+# library.add_book("Book2", "Author2", 2021)
+# # Displaying books in the library
+# library.display_books()     
 
+### **Practice Example: Student Management System**
+# Write a class `Student` with the following:
+# 1. An instance method `add_marks(self, subject, marks)` to add marks for a subject.
+# 2. A class method `set_school(cls, school_name)` to change the school name.
+# 3. A static method `is_passing(marks)` to check if marks are above 50.
 
+# class Student:
+#   school_name="DBU"
+#   def __init__ (self,name):
+#     self.name=name
+#     self.marks={}
+#   def add_marks(self,subject,marks):
+#     self.marks[subject]=marks
+#     return f"{subject}:{marks}"
+#   @classmethod
+#   def set_school(cls,school_name):
+#     cls.school_name=school_name
+#     return f"{school_name}"
+#   @staticmethod
+#   def is_passing(passmarks):
+#     return passmarks>50
+# student=Student("kal")
+# print(student.add_marks("english",70) ) 
+# print(student.set_school("DMU"))  
+# # print(student.is_passing(20))
 
+       
+# class Person:
+#   def __init__(self,name,age,color):
+#     self.name=name
+#     self.age=age
+#     self.color=color
+# p1=Person("tinbite",24,["white","blue","red"])
+# print(p1.name,p1.age,p1.color)
+
+# Create a Person class to store a person's name, age, and a list of their favorite colors. Instantiate the class and display the person's name, age, and all the favorite colors.
+class Person:
+  def __init__(self,name,age,favorite_color):
+    self.name=name
+    self.age=age
+    self.favorite_color=favorite_color
+person1=Person("samuel",20,["red","white","blue"])  
+
+print(f"{person1.name} is {person1.age} years old and his favorite colors are {person1.favorite_color}")  
 

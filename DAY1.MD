@@ -1,6 +1,6 @@
-# **Day 1: Introduction to Object-Oriented Programming (OOP) with Python**  
-**Session Duration**: 2.5 Hours  
+![My Image](image.png)
 
+# **Day 1: Introduction to Object-Oriented Programming (OOP) with Python** 
 ---
 
 ## **Table of Contents**  
@@ -85,8 +85,6 @@ In Python, every element is an object of a specific class.
 
 Every variable here is an object of a corresponding class.  
 
- 
-
  ```python
    x = 5  # x is an integer object
    y = "Hello"  # y is a string object
@@ -94,25 +92,11 @@ Every variable here is an object of a corresponding class.
    print(y.upper())  # Method of the string object
    ```
    ---
-```python
->>> num = 10
->>> type(num)
-<class 'int'>
-
->>> string = 'Hello, World!'
->>> type(string)
-<class 'str'>
-
->>> lst = []
->>> type(lst)
-<class 'list'>
-```  
 
 Every variable here is an object of a corresponding class.  
 
 ---
 ### **Part 2: Understanding Classes and Objects**  
-
 
 
 #### **Explanation**  
@@ -146,7 +130,6 @@ This creates an object `p` of the `Person` class.
 
 ---
 
-
 ### **Part 3: The `__init__` Method (Constructor)**  
 
 #### **Objective**  
@@ -156,7 +139,6 @@ Understand how the `__init__` method initializes object attributes during object
 A class constructor is defined using the `__init__()` method. It initializes object attributes. The `self` parameter refers to the object itself.  
 - The `__init__` method is a special method that runs automatically when a new object is created.  
 - It sets initial values for object attributes.  
-
 
 
 
@@ -208,7 +190,7 @@ In Python, attributes can be categorized as **instance attributes** and **class 
 class Person:
     def __init__(self, name, age):
         self.name = name  # Instance attribute
-        self.age = age    # Instance attribute
+        self.age = age    
 
 # Creating two objects of the Person class
 person1 = Person("Alice", 25)
@@ -289,7 +271,7 @@ print(emp2.name, emp2.position, emp2.company_name)  # Output: Bob Manager TechCo
 
 ---
 
-### **Easy Questions**
+### ** Questions**
 
 1. Create a `Person` class to store a person's name, age, and a list of their favorite colors. Instantiate the class and display the person's name, age, and all the favorite colors.
 
@@ -486,31 +468,31 @@ print(p2.person_info())  # Output: Alice Smith is 25 years old from Canada.
 ### **Easy Questions**
 
 1. Create a `Book` class that stores the title, author, and publication year. Add a method to display the book's details.
-
-2. Design a `Company` class with attributes for name, industry, and founding year. Write a method to display the company's details and another method to calculate its age based on the current year.
+3. Create an Animal class with an instance method describe to return the animal's name and species, a class method display_class_info , and a static method is_domestic to check if a species is domestic or wild.
+3. Design a `Company` class with attributes for name, industry, and founding year. Write a method to display the company's details and another method to calculate its age based on the current year.
 ---
 
 ### **Mid-Level Questions**
 
-3. Design a `Product` class with the attributes name, price, and stock quantity. Include a method to calculate the total value of the stock.
+4. Design a `Product` class with the attributes name, price, and stock quantity. Include a method to calculate the total value of the stock.
 
-4. Define a `Car` class with attributes such as brand, model, and year. Include a method that prints the car's full description.
+5. Define a `Car` class with attributes such as brand, model, and year. Include a method that prints the car's full description.
 
-5. Create a `Student` class with the following attributes: name, age, and a list of grades. Implement a method that calculates the average grade.
+6. Create a `Student` class with the following attributes: name, age, and a list of grades. Implement a method that calculates the average grade.
 
-6. Build a `BankAccount` class to store the account holder's name and balance. Add methods for deposit and withdrawal. 
+7. Build a `BankAccount` class to store the account holder's name and balance. Add methods for deposit and withdrawal. 
 
 ---
 
 ### **Hard Questions**
 
-7. Implement a `Library` class that holds a list of books, each represented by a dictionary containing the title, author, and year. Write a method to display all books.
+8. Implement a `Library` class that holds a list of books, each represented by a dictionary containing the title, author, and year. Write a method to display all books.
 
-8. Create a `House` class with attributes like address, number of rooms, and square footage. Implement a method that calculates the price based on square footage.
+9. Create a `House` class with attributes like address, number of rooms, and square footage. Implement a method that calculates the price based on square footage.
 
-9. Build an `Employee` class that stores an employee’s name, position, and salary. Write a method to calculate the annual salary.
+10. Build an `Employee` class that stores an employee’s name, position, and salary. Write a method to calculate the annual salary.
 
-10. Design a `Store` class that stores a list of products, each represented by a dictionary with name, price, and quantity. Write a method that displays the total value of all products in the store. 
+11. Design a `Store` class that stores a list of products, each represented by a dictionary with name, price, and quantity. Write a method that displays the total value of all products in the store. 
 
 
 ---
@@ -549,154 +531,5 @@ print(p2.person_info())  # Output: Alice Smith is 25 years old from Canada.
 
 
 
-## **Part : Inheritance**  
-### **Objective**  
-Understand how to create child classes that inherit properties and methods from a parent class.
-
----
-
-### **Explanation**  
-Inheritance allows a child class to inherit attributes and methods from a parent class.  
-- **Parent Class**: A general category (e.g., `Vehicle`).  
-- **Child Class**: A more specific category that inherits from the parent (e.g., `Car`).  
-- The child class can also override or extend the functionality of the parent class.  
-
----
-
-### **Code Example 1: Basic Inheritance**  
-
-```python
-class Vehicle:
-    def move(self):
-        return "I can move."
-
-class Car(Vehicle):
-    def move(self):
-        return "I drive on roads."
-
-class Boat(Vehicle):
-    def move(self):
-        return "I sail on water."
-
-# Example Usage
-vehicle = Vehicle()
-car = Car()
-boat = Boat()
-
-print(vehicle.move())  # Output: I can move.
-print(car.move())      # Output: I drive on roads.
-print(boat.move())     # Output: I sail on water.
-```
-
----
-
-### **Code Example 2: Real-World Scenario**  
-
-```python
-class Employee:
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
-
-    def display_info(self):
-        return f"Employee Name: {self.name}, Salary: {self.salary}"
-
-class Manager(Employee):
-    def __init__(self, name, salary, department):
-        super().__init__(name, salary)
-        self.department = department
-
-    def display_info(self):
-        return f"Manager {self.name} manages {self.department} department."
-
-class Developer(Employee):
-    def __init__(self, name, salary, programming_language):
-        super().__init__(name, salary)
-        self.programming_language = programming_language
-
-    def display_info(self):
-        return f"Developer {self.name} codes in {self.programming_language}."
-```
-
-The `super().__init__` method in Python is used to call the constructor of a parent class (also known as the base class) from a child class. This ensures that the parent class is properly initialized before adding or overriding any additional functionality in the child class.
-
-### **Key Benefits of Using `super().__init__`**:
-
-1. **Initialize Parent Class Attributes**:  
-   The parent class's attributes or methods are initialized automatically when `super().__init__` is used, avoiding redundant code in the child class.
-
-2. **Avoid Code Duplication**:  
-   Without `super().__init__`, you would need to explicitly call the parent class's constructor, which can lead to more complex and repetitive code.
-
-3. **Support for Multiple Inheritance**:  
-   In scenarios with multiple inheritance, `super()` ensures the parent classes are called in the correct order (based on the Method Resolution Order - MRO), making it safer and more maintainable.
-
-4. **Flexibility for Overriding**:  
-   The `super()` function allows child classes to override methods or attributes while still retaining access to the parent class's functionality.
-
----
-What will be the output of the following code? Explain why.
-python
-Run
-Copy
-class Shape:
-    def area(self):
-        return 0
-
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-
-    def area(self):
-        return 3.14 * self.radius * self.radius
-
-circle = Circle(5)
-print(circle.area())
----
-## Exercies
-Here are five coding questions focused on inheritance, rewritten for clarity and precision:
-
----
-
-### **1. Basic Inheritance and Method Overriding**  
-Define a base class named `Animal` with a method `speak()`. Create a derived class `Dog` that overrides the `speak()` method. How should the code be implemented?  
-
----
-
-### **2. Extending Attributes in Derived Classes**  
-Create a base class `Book` with attributes for `title` and `author`. Write a derived class `EBook` that adds an attribute for `file_size`. How would you extend the functionality of the `Book` class in the `EBook` class?  
-
----
-
-### **3. Predicting Output**  
-What will be the output of the following code? Explain why it produces the given output.  
-
-```python
-class Shape:
-    def area(self):
-        return 0
-
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-
-    def area(self):
-        return 3.14 * self.radius * self.radius
-
-circle = Circle(5)
-print(circle.area())
-```  
-
----
-
-### **4. Class Hierarchies with Unique Methods**  
-Design a class hierarchy where `Animal` is the base class, and `Mammal` and `Bird` are derived classes. Each derived class should include a unique method that describes a distinctive feature (e.g., `fly()` for `Bird`, `nurse()` for `Mammal`). Provide an implementation.  
-
----
-
-### **5. Calling Parent Class Methods from Derived Classes**  
-How would you implement a method in the base class that is explicitly called from a derived class? Provide an example where the base class method performs a shared action while the derived class extends or modifies it.  
-
---- 
 
 

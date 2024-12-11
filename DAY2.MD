@@ -1,19 +1,33 @@
+Here’s the updated and extended version of the session plan on **Inheritance** and **Polymorphism** for a **2-hour session**, with detailed explanations, real-life examples, exercises, and structured sections.  
+
+---
+
 # **Day 2: Intermediate OOP Concepts**  
-### **Session Duration**: 2.5 Hours  
+### **Session Duration**: 2 Hours  
 
 ---
 
-## **Part 1: Inheritance**  
-### **Objective**  
-Understand how to create child classes that inherit properties and methods from a parent class.
+## **Session Objectives**  
+By the end of this session, participants will:  
+1. Understand inheritance and polymorphism with their real-life and programming analogies.  
+2. Write Python code that uses inheritance and polymorphism effectively.  
+3. Practice solving practical problems using these OOP concepts.  
 
 ---
 
-### **Explanation**  
-Inheritance allows a child class to inherit attributes and methods from a parent class.  
-- **Parent Class**: A general category (e.g., `Vehicle`).  
-- **Child Class**: A more specific category that inherits from the parent (e.g., `Car`).  
-- The child class can also override or extend the functionality of the parent class.  
+## **Session Plan**  
+
+### **Part 1: Understanding Inheritance**  
+
+#### **Definition**  
+Inheritance allows one class (child) to inherit attributes and methods from another class (parent).  
+- **Parent Class**: Represents a general entity (e.g., `Vehicle`).  
+- **Child Class**: Represents a specific type of the parent (e.g., `Car` inherits from `Vehicle`).  
+
+#### **Real-Life Analogy**  
+Think of a **family hierarchy**:  
+- A parent might have specific attributes (e.g., "brown eyes") and behaviors (e.g., "cooking skills").  
+- A child inherits these traits but may also add unique traits (e.g., "plays guitar") or modify behaviors (e.g., "different cooking style").  
 
 ---
 
@@ -25,12 +39,10 @@ class Vehicle:
         return "I can move."
 
 class Car(Vehicle):
-    def move(self):
-        return "I drive on roads."
+    pass
 
 class Boat(Vehicle):
-    def move(self):
-        return "I sail on water."
+    pass
 
 # Example Usage
 vehicle = Vehicle()
@@ -38,101 +50,77 @@ car = Car()
 boat = Boat()
 
 print(vehicle.move())  # Output: I can move.
-print(car.move())      # Output: I drive on roads.
-print(boat.move())     # Output: I sail on water.
-```
+print(car.move())      # Output: I can move.
+print(boat.move())     # Output: I can move.
+```  
+
+Here, `Car` and `Boat` inherit the `move` method from `Vehicle`.
 
 ---
 
-### **Code Example 2: Real-World Scenario**  
+### **Code Example 2: Overriding Methods**  
 
 ```python
-class Employee:
-    def __init__(self, name, salary):
-        self.name = name
-        self.salary = salary
+class Vehicle:
+    def move(self):
+        return "I can move."
 
-    def display_info(self):
-        return f"Employee Name: {self.name}, Salary: {self.salary}"
+class Car(Vehicle):
+    def move(self):
+        return "I move on roads."
 
-class Manager(Employee):
-    def __init__(self, name, salary, department):
-        super().__init__(name, salary)
-        self.department = department
+class Boat(Vehicle):
+    def move(self):
+        return "I move on water."
 
-    def display_info(self):
-        return f"Manager {self.name} manages {self.department} department."
-
-class Developer(Employee):
-    def __init__(self, name, salary, programming_language):
-        super().__init__(name, salary)
-        self.programming_language = programming_language
-
-    def display_info(self):
-        return f"Developer {self.name} codes in {self.programming_language}."
-```
+vehicles = [Vehicle(), Car(), Boat()]
+for v in vehicles:
+    print(v.move())
+# Output:
+# I can move.
+# I move on roads.
+# I move on water.
+```  
 
 ---
 
-### **Exercise**  
-1. Create a `Person` class with attributes `name` and `age` and a method `introduce` to display the person's information.  
-2. Create two child classes:
-   - `Student` with an additional attribute `course` and override the `introduce` method.  
-   - `Teacher` with an additional attribute `subject` and override the `introduce` method.  
+### **Exercise 1: Practice Inheritance (15 minutes)**  
+---
+1. Create a `Student` class that inherits `Person`.  
+   - Add an attribute `course` and modify the `introduce` method to include "I study [course]." 
+   
+2. Create a `Person` class and a `Student` class that inherits it. Add an `id` attribute to `Student`.
+3. Create a `Vehicle` class with a method `fuel_efficiency()` and override it in `Car` and `Bike` subclasses.
+
+4. Implement a `Shape` class and a `Square` subclass that calculates the area.
+
+5. Use `super()` to call a parent class's method from a child class.
+
+6. Create a `Teacher` class and inherit it in `MathTeacher` and `ScienceTeacher`.
+
+7. Demonstrate single inheritance using `Company` and `Employee`.
+
+8. Write a program with a `Device` class and its subclasses `Laptop` and `Smartphone`, overriding the `use` method.
+
+9. Create an example of multiple inheritance using `Teacher` and `Mentor`.
+
+10. Write a program to demonstrate hierarchical inheritance with a `Person` class and `Student` and `Teacher` subclasses.
+ 
+
 
 ---
 
-## **Part 2: Encapsulation**  
-### **Objective**  
-Learn how to protect data using access modifiers.  
+### **Part 2: Understanding Polymorphism**  
 
----
+#### **Definition**  
+Polymorphism means “many forms.” It allows methods in different classes to have the same name but behave differently.  
 
-### **Explanation**  
-Encapsulation allows restricting direct access to some attributes while providing controlled access through methods.  
-- **Public Attributes**: Accessible anywhere.  
-- **Private Attributes**: Accessible only inside the class (prefix with `__`).  
-
----
-
-### **Code Example 1: Encapsulation Basics**  
-
-```python
-class BankAccount:
-    def __init__(self, account_number, balance):
-        self.__account_number = account_number  # Private attribute
-        self.__balance = balance
-
-    def deposit(self, amount):
-        self.__balance += amount
-        return f"Deposited {amount}. New balance: {self.__balance}"
-
-    def withdraw(self, amount):
-        if amount > self.__balance:
-            return "Insufficient balance."
-        self.__balance -= amount
-        return f"Withdrew {amount}. Remaining balance: {self.__balance}"
-
-    def get_balance(self):
-        return self.__balance
-```
-
----
-
-### **Exercise**  
-1. Create a `Student` class with private attributes for `name` and `grades`.  
-2. Add methods to securely add grades and retrieve the list of grades.  
-
----
-
-## **Part 3: Polymorphism**  
-### **Objective**  
-Understand how methods can work differently based on the object that calls them.  
-
----
-
-### **Explanation**  
-Polymorphism allows methods in different classes to have the same name but behave differently based on the class.  
+#### **Real-Life Analogy**  
+Think of the word **"drive":**  
+- A **car driver** drives on roads.  
+- A **train driver** operates a train on tracks.  
+- A **ship captain** drives (or navigates) a ship on water.  
+The action is called "drive," but its implementation varies depending on the context.
 
 ---
 
@@ -154,91 +142,72 @@ class Cat(Animal):
 animals = [Animal(), Dog(), Cat()]
 for animal in animals:
     print(animal.speak())
-```
+# Output:
+# I make a sound.
+# Woof! Woof!
+# Meow!
+```  
 
 ---
 
-### **Exercise**  
+### **Exercise 2: Practice Polymorphism (15 minutes)**  
 1. Create a `Shape` class with a method `area`.  
-2. Create two subclasses:  
-   - `Circle` that overrides the `area` method to calculate the area of a circle.  
-   - `Rectangle` that overrides the `area` method to calculate the area of a rectangle.  
+   - Create two subclasses:  
+     - `Circle` that calculates the area of a circle (π × r²).  
+     - `Rectangle` that calculates the area of a rectangle (length × width).  
+2. Write a loop to calculate and print the areas of multiple shapes.  
 
 ---
 
-## **Part 4: Mini-Project**  
-### **Objective**  
-Combine all concepts (Inheritance, Encapsulation, Polymorphism) into a practical project.  
+### **Part 3: Advanced Inheritance and Polymorphism**  
 
----
-
-### **Project: Library Management System**  
-
----
-
-### **Requirements**  
-1. A `Book` class with attributes `title` and `author`.  
-2. A `Library` class with methods to add, remove, and list books.  
-3. Add a `User` class that can borrow and return books.  
-
----
-
-### **Sample Implementation**  
+#### **Using `super()` in Inheritance**  
 
 ```python
-class Book:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
-
-class Library:
-    def __init__(self):
-        self.books = []
-
-    def add_book(self, book):
-        self.books.append(book)
-        print(f"Added book: {book.title} by {book.author}")
-
-    def remove_book(self, title):
-        self.books = [book for book in self.books if book.title != title]
-        print(f"Removed book: {title}")
-
-    def list_books(self):
-        if not self.books:
-            print("No books available.")
-        for book in self.books:
-            print(f"{book.title} by {book.author}")
-
-class User:
-    def __init__(self, name):
+class Employee:
+    def __init__(self, name, salary):
         self.name = name
-        self.borrowed_books = []
+        self.salary = salary
 
-    def borrow_book(self, library, title):
-        for book in library.books:
-            if book.title == title:
-                library.remove_book(title)
-                self.borrowed_books.append(book)
-                print(f"{self.name} borrowed {title}")
-                return
-        print(f"Book {title} not available.")
+    def display_info(self):
+        return f"Employee Name: {self.name}, Salary: {self.salary}"
 
-    def return_book(self, library, title):
-        for book in self.borrowed_books:
-            if book.title == title:
-                self.borrowed_books.remove(book)
-                library.add_book(book)
-                print(f"{self.name} returned {title}")
-                return
-        print(f"{self.name} does not have {title}.")
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        super().__init__(name, salary)
+        self.department = department
+
+    def display_info(self):
+        return f"Manager {self.name} manages {self.department} department."
 ```
+---
+
+### **Questions: Polymorphism**  
+
+1. Write a program with a `Animal` class and two subclasses `Dog` and `Cat`, each with a `speak()` method. Call the `speak()` method on each subclass object.
+
+2. Create a `Vehicle` class and subclasses `Car` and `Bike`. Each subclass should implement a `move()` method differently. Write a function that accepts any `Vehicle` object and calls its `move()` method.
+
+3. Implement a `Shape` class and subclasses `Circle` and `Square`, each with a `calculate_area()` method. Use polymorphism to compute the area of multiple shapes.
+
+4. Create a `Bird` class and two subclasses `Sparrow` and `Penguin`, each with a `fly()` method. Write a program that demonstrates their unique implementations.
+
+5. Write a `Worker` class and subclasses `Engineer` and `Doctor`, each with a `work()` method. Use polymorphism to call the `work()` method for different worker objects.
+
+6. Create a `Payment` class and subclasses `CreditCardPayment` and `PayPalPayment`, each with a `process()` method. Demonstrate how polymorphism works with these classes.
+
+7. Write a program with a `Device` class and subclasses `Laptop` and `Smartphone`. Each subclass should have a `start()` method. Call the `start()` method on different objects using a loop.
+
+8. Create a `Student` class and two subclasses `PrimaryStudent` and `HighSchoolStudent`. Each subclass should have an `introduce()` method. Use polymorphism to introduce different types of students.
+
+9. Implement a `Printer` class and subclasses `InkjetPrinter` and `LaserPrinter`, each with a `print()` method. Demonstrate polymorphism by calling the `print()` method on various printer objects.
+
+10. Write a program with a `GameCharacter` class and two subclasses `Warrior` and `Mage`. Each subclass should implement an `attack()` method. Use a loop to call the `attack()` method for different character objects.
 
 ---
 
-### **Exercise**  
-Extend the project to include:  
-1. A search functionality in the library to find books by title or author.  
-2. An admin user who can view all borrowed books and their borrowers.  
-
---- 
+### **Summary**  
+- **Inheritance** is used to reuse code and model hierarchies.  
+- **Polymorphism** is used to define methods that behave differently based on the object calling them.  
+- Together, these concepts make OOP flexible, reusable, and scalable.  
 
