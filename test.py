@@ -100,12 +100,97 @@ print(p)
 # print(p1.name,p1.age,p1.color)
 
 # Create a Person class to store a person's name, age, and a list of their favorite colors. Instantiate the class and display the person's name, age, and all the favorite colors.
-class Person:
-  def __init__(self,name,age,favorite_color):
+# class Person:
+#   def __init__(self,name,age,favorite_color):
+#     self.name=name
+#     self.age=age
+#     self.favorite_color=favorite_color
+# person1=Person("samuel",20,["red","white","blue"])  
+
+# print(f"{person1.name} is {person1.age} years old and his favorite colors are {person1.favorite_color}")  
+
+# ### **Practice Example: Student Management System**
+# Write a class `Student` with the following:
+# 1. An instance method `add_marks(self, subject, marks)` to add marks for a subject.
+# 2. A class method `set_school(cls, school_name)` to change the school name.
+# 3. A static method `is_passing(marks)` to check if marks are above 50.
+# class Student:
+#   school_name="debere birhan prep"
+#   def __init__(self,name):
+#     self.name=name
+#     self.marks={}
+#   def add_marks(self,subject,mark):
+#     self.marks[subject]=mark
+#     return f"{self.marks}"
+#   @classmethod
+#   def modify_school_name(cls,school_name):
+#      cls.school_name=school_name
+#      return f"the school name is changed to{cls.school_name}"
+#   @staticmethod
+#   def is_passing(my_mark):
+#     if my_mark>50:
+#         return "pass"  
+# student1=Student("tinbite")  
+# print(student1.add_marks("english",50) )          
+# print(student1.modify_school_name("dmu prep"))
+# print(student1.is_passing(90))
+# class Animal:
+#     def sound(self):
+#         return "Some sound"
+
+# class Dog(Animal):
+#     breed = "Labrador"
+#     @classmethod
+#     def breed(cls):
+#          return cls.breed
+
+# class Cat(Animal):
+#     color = "Black"
+
+# # Example Usage
+# dog = Dog()
+# cat = Cat()
+
+# print(dog.sound())  # Output: Some sound
+# print(dog.breed())  
+# print(cat.sound())  # Output: Some sound
+
+
+
+# Create a Student class that inherits from the Person class.
+# The Person class should have attributes name and age, and a method introduce() that introduces the person by stating their name and age.
+# The Student class should inherit from Person and add an additional attribute course to represent the course the student is studying.
+# Modify the introduce() method in the Student class to include the student's course, so the introduction should include: "Hi, I'm [name], I'm [age] years old, and I study [course]."
+# Ensure that the Student class uses the super() function to call the constructor of the Person class to initialize the name and age attributes.
+
+class Person():
+  def __init__(self, name, age):
     self.name=name
     self.age=age
-    self.favorite_color=favorite_color
-person1=Person("samuel",20,["red","white","blue"])  
+  def introduce(self):
+    return f"Hi, I'm {self.name}, I'm {self.age} years old"
+class Student(Person):
+  def __init__(self, name, age, course):
+    super().__init__(name,age)
+    self.course=course
+  def introduce(self):
+    return f"Hi, I'm {self.name}, I'm {self.age} years old,I learn{self.course}"
+p1=Person("tinbite",22)
+print(p1.introduce())
+s1=Student("tinbite",23,"english")
+print(s1.introduce())
 
-print(f"{person1.name} is {person1.age} years old and his favorite colors are {person1.favorite_color}")  
+
+
+
+
+
+
+
+
+# The Person class should have attributes name and age, and a method introduce() that introduces the person by stating their name and age.
+# The Student class should inherit from Person and add an additional attribute course to represent the course the student is studying.
+# Modify the introduce() method in the Student class to include the student's course, so the introduction should include: "Hi, I'm [name], I'm [age] years old, and I study [course]."
+# Ensure that the Student class uses the super() function to call the constructor of the Person class to initialize the name and age attributes.
+
 
